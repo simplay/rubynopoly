@@ -1,13 +1,17 @@
+require_relative 'player_list.rb'
+require 'pry'
+
 class Game
   
   attr_reader :players,
               :dice
   
   # @param user_input Hash containing
-  #        :player number of players
-  #        :money starting money for each player
+  #        :players Integer number of players
+  #        :money Integer starting money for each player
   def initialize(user_input)
-    
+    binding.pry
+    @players = PlayerList.new(user_input)
   end
   
   private 
@@ -22,7 +26,7 @@ class Game
   end
   
   def still_fighting?
-    (@payers.select &:alive?).count) > 1
+    (@payers.select &:alive?).count > 1
   end
   
 end

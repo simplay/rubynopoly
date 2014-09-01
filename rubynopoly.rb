@@ -13,8 +13,6 @@ opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage example: ruby rabpt.rb -p 4 -m 1000"
                 
   opt.separator  ""
-  # some defaults
-  user_args[:SPP] = 8
 
   opt.on("-p", "--players P", Integer, "the number of players") do |player|
     user_args[:players] = player

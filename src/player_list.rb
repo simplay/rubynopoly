@@ -1,9 +1,15 @@
+require_relative 'player.rb'
+
 class PlayerList
   attr_accessor :current
   LIST = []
-  def initialize(args)
-    (1..args[:count]).each do |idx| 
-      LIST << Player.new("p#{idx}", args[:money]) 
+
+  # @param user_input Hash containing
+  #        :players Integer number of players
+  #        :money Integer starting money for each player
+  def initialize(user_input)
+    (1..user_input[:players]).each do |idx|
+      LIST << Player.new("Player#{idx}", user_input[:money])
     end
     @current = LIST.first
   end
