@@ -21,7 +21,16 @@ class Board
   # @param steps Integer number of steps player may move
   # @param player Player currently playing player
   def update(steps, player)
+    current_at_land_index = index_of(player.position)
+    new_land_index = (current_at_land_index+steps) % @grid.count
+    target_land = @grid[new_land_index]
+    player.update_position(target_land)
+  end
 
+  private
+
+  def index_of(land)
+    @grid.index(land)
   end
   
 end

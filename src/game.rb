@@ -27,6 +27,7 @@ class Game
       active_player = @players.next
       steps_to_move = dice.roll
       board.update(steps_to_move, active_player)
+      @players.remove(active_player) unless active_player.is_alive?
     end
     puts "game finished - yolo swag"
   end

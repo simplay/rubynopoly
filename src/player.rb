@@ -1,7 +1,7 @@
 # :name player's name
 # :money player's current money
 class Player
-  attr_accessor :name, :money, :alive
+  attr_accessor :name, :money, :alive, :position
   
   # @param name String playername
   # @param money Float a player's starting money
@@ -10,10 +10,11 @@ class Player
     @money = money
     @name = name
   end
-  
-  # roll the dice and perform steps according to provided user input
-  def move(steps)
-    
+
+  def update_position(land)
+    @position = land
+    land.invoke(self)
+
   end
   
   def is_alive?
@@ -26,8 +27,9 @@ class Player
 
   def decrease_money_by(amount)
     raise "not implemented yet"
+    @money = @money - amount
+    @alive = false if(@money <= 0)
   end
-  
 
   
 end
