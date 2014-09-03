@@ -18,9 +18,9 @@ class Game
   
   # each iteration of this loop represents a player's turn
   def run_main_loop
-    while still_fighting? do 
-      player = @players.next
-      board.update(player.move)
+    while @players.has_competing_players? do
+      current_player = @players.next
+
     end
     puts "game finished - yolo swag"
   end
