@@ -39,6 +39,13 @@ class PlayerList
     (@list.index(player)+1) % @list.count
   end
 
+  # update :current pointer of playerlist :list
+  # by the player of a given index. Note that there is no further
+  # check whether the provided index is valid.
+  # thus, if passing an invalid index, :current will point to nil.
+  # @param next_idx Integer index of a potential Player
+  #        in :list which should be referenced by :current
+  # @return Player instance where :current currently points to.
   def update_current(next_idx)
     @current = @list[next_idx]
   end
