@@ -36,7 +36,7 @@ begin
   required_args.each do |arg|
     raise OptionParser::MissingArgument if user_args[arg].nil?
   end
-    
+
 rescue OptionParser::MissingArgument
   puts "Incorrect input argument(s) passed\n"
   puts opt_parser.help

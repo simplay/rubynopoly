@@ -14,7 +14,6 @@ class Game
   #        :players Integer number of players
   #        :money Integer starting money for each player
   def initialize(user_input)
-    binding.pry
     @dice = Dice.new
     @players = PlayerList.new(user_input)
     @board = Board.new

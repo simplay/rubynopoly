@@ -1,9 +1,16 @@
+require_relative 'land.rb'
+
+require 'yaml'
+require 'pry'
+
+
+
 class Board
 
   attr_reader :grid
 
   def initialize
-    @grid = []
+    @grid = YAML::load_file(File.join('data', 'map.yml'))
 
   end
 
