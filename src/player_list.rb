@@ -16,8 +16,7 @@ class PlayerList
   
   # @return Player next alive player in list
   def next
-    next_idx = (@list.index(@current)+1) % @list.count
-    update_current(next_idx)
+    update_current(list_index_of(@current))
   end
 
   # are there at least two players alive?
@@ -27,11 +26,19 @@ class PlayerList
   end
   
   def remove(player)
+    update_current(list_index_of(player)) if player==current
     @list.delete(player)
   end
   
   private 
-  
+
+  # get index in internal list of current player
+  # @param Player a given player
+  # @return Integer index of player in internal player array
+  def list_index_of(player)
+    (@list.index(player)+1) % @list.count
+  end
+
   def update_current(next_idx)
     @current = @list[next_idx]
   end

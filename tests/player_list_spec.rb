@@ -3,7 +3,7 @@ require_relative '../src/player_list.rb'
 
 describe PlayerList do
 
-  before do
+  before(:each) do
     @player_count = 3
     @player_list = PlayerList.new({:players => @player_count, :money => 1000})
   end
@@ -36,6 +36,17 @@ describe PlayerList do
       end
     end
 
+    describe "removing all players except one" do
+      it "should result in having no competing player" do
+        (@player_count).times do
+          first = @player_list.current
+          @player_list.remove(first)
+        end
+        expect(@player_list.has_competing_players?).to be(false)
+      end
+    end
+
   end
+
 
  end
