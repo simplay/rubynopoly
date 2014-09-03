@@ -11,7 +11,6 @@ Version = "0.0.1"
 user_args = {}
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage example: ruby rabpt.rb -p 4 -m 1000"
-                
   opt.separator  ""
 
   opt.on("-p", "--players P", Integer, "the number of players") do |player|
@@ -26,7 +25,7 @@ opt_parser = OptionParser.new do |opt|
     exit
   end
   opt.on_tail("--version", "Show version") do
-    puts "rabpt #{Version}"
+    puts "Rubynopoly v#{Version}"
     exit
   end
 
@@ -37,6 +36,7 @@ begin
   required_args.each do |arg|
     raise OptionParser::MissingArgument if user_args[arg].nil?
   end
+    
 rescue OptionParser::MissingArgument
   puts "Incorrect input argument(s) passed\n"
   puts opt_parser.help
