@@ -1,11 +1,11 @@
-- !ruby/object:Land
+- !ruby/object:Estate
  
   name: "field1"
   property: "buyable"
   price: 1000
 
   
-- !ruby/object:Land
+- !ruby/object:Estate
 
   name: "field2"
   property: "buyable"

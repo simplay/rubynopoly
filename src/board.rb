@@ -1,4 +1,4 @@
-require_relative 'land.rb'
+require_relative 'lands/estate.rb'
 
 require 'yaml'
 require 'pry'
@@ -10,6 +10,7 @@ class Board
   attr_reader :grid
 
   def initialize
+    binding.pry
     @grid = YAML::load_file(File.join('data', 'map.yml'))
 
   end

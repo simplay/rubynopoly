@@ -19,6 +19,14 @@ class Player
   def is_alive?
     @alive
   end
+
+  def offer_to_buy(land)
+    raise "not implemented yet"
+  end
+
+  def decrease_money_by(amount)
+    raise "not implemented yet"
+  end
   
 
   

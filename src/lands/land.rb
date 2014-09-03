@@ -1,3 +1,4 @@
+
 # :owner Player who posses this land
 class Land
   
@@ -17,7 +18,23 @@ class Land
   def initialize(args = {})
   end
 
+  def invoke_on(player)
+    raise "not implemented yet"
+  end
 
 
+  def has_owner?
+    @owner.nil?
+  end
+
+  def is_ownable?
+    false
+  end
+
+  protected
+
+  def set_owner(player)
+    @owner = player if is_ownable?
+  end
 
 end
