@@ -13,20 +13,32 @@ class Player
 
   def update_position(land)
     @position = land
-    land.invoke(self)
-
+    land.invoke_on(self)
   end
-  
+
+  # @return Boolean is player alive
+  #         i.e. does posses any property or has :money >= 0
   def is_alive?
     @alive
   end
 
+  # offer this user to buy a :land land
+  # @return land Estate, RailStation or Factory Land descendant.
+  # @return Boolean true in case this user wants to buy this land
   def offer_to_buy(land)
-    raise "not implemented yet"
+    input = nil
+    while(!["y","n"].include?(input)) do
+      puts "would you like to buy this land for #{land.price}.- [y/n]?"
+      input = gets.chomp
+    end
+    input.eql?("y")
+  end
+
+  def increase_money_by(amount)
+    @money = @money + amount
   end
 
   def decrease_money_by(amount)
-    raise "not implemented yet"
     @money = @money - amount
     @alive = false if(@money <= 0)
   end

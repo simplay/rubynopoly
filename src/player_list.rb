@@ -6,10 +6,13 @@ class PlayerList
   # @param user_input Hash containing
   #        :players Integer number of players
   #        :money Integer starting money for each player
-  def initialize(user_input)
+  #        :starting_position Land representing a player's initial position.
+  def initialize(user_input, starting_position)
     @list = []
     (1..user_input[:players]).each do |idx|
-      @list << Player.new("Player#{idx}", user_input[:money])
+      new_player = Player.new("Player#{idx}", user_input[:money])
+      new_player.position = starting_position
+      @list << new_player
     end
     @current = @list.last
   end

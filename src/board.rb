@@ -16,6 +16,10 @@ class Board
 
   end
 
+  def first_field
+    @grid.first
+  end
+
   # moves a player :player fro his current position
   # about :steps number of steps and invokes the corresponding
   # action at the target board field.

@@ -3,6 +3,7 @@
 class Land
   
   attr_accessor :owner
+  attr_reader :price, :name
   
   # @param args Hash containing
   #        :name String name of field
@@ -24,7 +25,7 @@ class Land
 
 
   def has_owner?
-    @owner.nil?
+    !@owner.nil?
   end
 
   def is_ownable?

@@ -15,15 +15,17 @@ class Game
   #        :money Integer starting money for each player
   def initialize(user_input)
     @dice = Dice.new
-    @players = PlayerList.new(user_input)
     @board = Board.new
-
+    @players = PlayerList.new(user_input, @board.first_field)
+    start
   end
   
   private 
   
   # each iteration of this loop represents a player's turn
   def start
+    binding.pry
+    # TODO add a 2nd dice and also a face value check - dices same face values?
     while @players.has_competing_players? do
       active_player = @players.next
       steps_to_move = dice.roll
