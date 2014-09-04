@@ -17,19 +17,25 @@ class Game
     @dice = Dice.new
     @players = PlayerList.new(user_input)
     @board = Board.new
+
   end
   
   private 
   
   # each iteration of this loop represents a player's turn
-  def run_main_loop
+  def start
     while @players.has_competing_players? do
       active_player = @players.next
       steps_to_move = dice.roll
       board.update(steps_to_move, active_player)
       @players.remove(active_player) unless active_player.is_alive?
+      # TODO update statistics
     end
-    puts "game finished - yolo swag"
+
+    puts "Player #{@players.current} has won the game"
+    puts "Game finished - yolo swag"
+
+    # TODO show fancy statistics
   end
 
 end

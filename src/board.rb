@@ -1,4 +1,5 @@
-require_relative 'lands/estate.rb'
+require_relative 'fields/estate.rb'
+require_relative 'fields/card.rb'
 
 require 'yaml'
 require 'pry'
