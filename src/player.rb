@@ -26,12 +26,12 @@ class Player
   # @return land Estate, RailStation or Factory Land descendant.
   # @return Boolean true in case this user wants to buy this land
   def offer_to_buy(land)
-    input = nil
-    while(!["y","n"].include?(input)) do
+    decision = nil
+    while(!["y","n"].include?(decision)) do
       puts "would you like to buy this land for #{land.price}.- [y/n]?"
-      input = gets.chomp
+      decision = gets.chomp
     end
-    input.eql?("y")
+    decision.eql?("y")
   end
 
   def increase_money_by(amount)
@@ -40,7 +40,7 @@ class Player
 
   def decrease_money_by(amount)
     @money = @money - amount
-    @alive = false if(@money <= 0)
+    @alive = false if(@money < 0)
   end
 
   

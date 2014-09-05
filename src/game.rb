@@ -34,7 +34,7 @@ class Game
       # TODO update statistics
     end
 
-    puts "Player #{@players.current} has won the game"
+    puts "Player #{@players.current.name} has won the game"
     puts "Game finished - yolo swag"
 
     # TODO show fancy statistics
