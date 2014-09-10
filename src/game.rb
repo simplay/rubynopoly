@@ -28,7 +28,11 @@ class Game
     # TODO add a 2nd dice and also a face value check - dices same face values?
     while @players.has_competing_players? do
       active_player = @players.next
+      puts "#{active_player.to_s}'s turn'"
+      puts "Press enter to roll your dice: "
       steps_to_move = dice.roll
+      puts "You have rolled a #{steps_to_move}."
+
       board.update(steps_to_move, active_player)
       @players.remove(active_player) unless active_player.is_alive?
       # TODO update statistics
@@ -39,5 +43,6 @@ class Game
 
     # TODO show fancy statistics
   end
+
 
 end
