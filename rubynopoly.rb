@@ -5,6 +5,8 @@ require "imageruby"
 require "pry"
 require 'optparse'
 require_relative 'src/game.rb'
+require_relative 'src/view.rb'
+require_relative 'src/controller.rb'
 
 Version = "0.0.1"
 
@@ -43,4 +45,7 @@ rescue OptionParser::MissingArgument
   exit
 end
 
-Game.new user_args
+# MVC initialization
+game = Game.new user_args
+view = View.new(game)
+Controller.new(game, view)
