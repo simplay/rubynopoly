@@ -1,11 +1,14 @@
 require_relative 'player_list.rb'
 require_relative 'board.rb'
 require_relative 'dice.rb'
+require_relative 'manager.rb'
+require_relative 'observable.rb'
 
 require 'pry'
 
 class Game
-  
+  include Observable
+
   attr_reader :players,
               :dice,
               :board
@@ -17,11 +20,16 @@ class Game
     @dice = Dice.new
     @board = Board.new
     @players = PlayerList.new(user_input, @board.first_field)
-    start
+    @manager = Manager.new
   end
-  
+
+  def status
+    @manager.status
+  end
+
   private 
-  
+
+  # TODO export all #puts statements into View
   # each iteration of this loop represents a player's turn
   def start
     binding.pry
@@ -35,7 +43,7 @@ class Game
 
       board.update(steps_to_move, active_player)
       @players.remove(active_player) unless active_player.is_alive?
-      # TODO update statistics
+      notify_all
     end
 
     puts "Player #{@players.current.name} has won the game"
