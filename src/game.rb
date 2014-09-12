@@ -6,8 +6,7 @@ require_relative 'observable.rb'
 
 require 'pry'
 
-class Game
-  include Observable
+class Game < Observable
 
   attr_reader :players,
               :dice,
@@ -17,6 +16,7 @@ class Game
   #        :players Integer number of players
   #        :money Integer starting money for each player
   def initialize(user_input)
+    super()
     @dice = Dice.new
     @board = Board.new
     @players = PlayerList.new(user_input, @board.first_field)
@@ -27,11 +27,10 @@ class Game
     @manager.status
   end
 
-  private 
-
   # TODO export all #puts statements into View
   # each iteration of this loop represents a player's turn
   def start
+
     binding.pry
     # TODO add a 2nd dice and also a face value check - dices same face values?
     while @players.has_competing_players? do
@@ -51,6 +50,5 @@ class Game
 
     # TODO show fancy statistics
   end
-
 
 end

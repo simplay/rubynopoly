@@ -16,7 +16,7 @@ class Manager
 
   # @param prefix String
   #
-  def print(prefix = "", key, wait = false)
+  def print(key, prefix = '', wait = false)
     base = wait ? accept_dialogue(key) : dialogue(key)
     prefix + base
   end

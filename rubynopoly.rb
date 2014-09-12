@@ -1,7 +1,7 @@
 #!/usr/bin/env jruby
 
 require "rubygems"
-require "imageruby"
+# require "imageruby"
 require "pry"
 require 'optparse'
 require_relative 'src/game.rb'
