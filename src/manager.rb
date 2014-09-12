@@ -1,5 +1,9 @@
 class Manager
 
+
+  attr_accessor :history,
+                :counter
+
   # TODO re[lace this internallz stored dialogues hash by a yaml file.]
   DIALOGUES = {
       :face_rolled => "You have rolled a",
@@ -7,6 +11,23 @@ class Manager
   }
 
   def initialize
+    @history = {}
+    @counter = 1
+    @history[@counter] = ""
+  end
+
+  def append(text)
+    @history[@counter] += (text + " \n")
+  end
+
+  def flush
+    @history[@counter] += (text + " \n")
+    @counter += 1
+    @history[@counter] = ""
+  end
+
+  def head
+    @history[@counter]
   end
 
   # TODO left to be implemented print current turn's saved game status

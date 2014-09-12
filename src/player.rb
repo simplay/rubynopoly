@@ -11,6 +11,10 @@ class Player
     @name = name
   end
 
+  def to_s
+    name
+  end
+
   def update_position(land)
     @position = land
     land.invoke_on(self)

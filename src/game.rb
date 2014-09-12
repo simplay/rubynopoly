@@ -24,7 +24,11 @@ class Game < Observable
   end
 
   def status
-    @manager.status
+    @manager.head
+  end
+
+  def flush_status
+    @manager.flush
   end
 
   # TODO export all #puts statements into View
@@ -35,10 +39,12 @@ class Game < Observable
     # TODO add a 2nd dice and also a face value check - dices same face values?
     while @players.has_competing_players? do
       active_player = @players.next
-      puts "#{active_player.to_s}'s turn'"
-      puts "Press enter to roll your dice: "
+
+      @manager.append("#{active_player.to_s}'s turn'")
+      @manager.append("Press enter to roll your dice: ")
+
       steps_to_move = dice.roll
-      puts "You have rolled a #{steps_to_move}."
+      @manager.append("You have rolled a #{steps_to_move}.")
 
       board.update(steps_to_move, active_player)
       @players.remove(active_player) unless active_player.is_alive?

@@ -8,10 +8,8 @@ class View
     @game = game
   end
 
-  # TODO make this way more meaningfully...
   def update_console
-    # replace this asap by Manager's strings
-    puts "#{@game.status} this is the fancy console output"
+    puts "#{@game.status}"
   end
 
 end
