@@ -13,7 +13,7 @@ class Manager
   def initialize
     @history = {}
     @counter = 1
-    @history[@counter] = ""
+    @history[@counter] = ''
   end
 
   def append(text)
@@ -21,9 +21,10 @@ class Manager
   end
 
   def flush
-    @history[@counter] += (text + " \n")
+    @history[@counter] += '\n'
+    @history[@counter] += '\n'
     @counter += 1
-    @history[@counter] = ""
+    @history[@counter] = ''
   end
 
   def head

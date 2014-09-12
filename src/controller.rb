@@ -15,6 +15,7 @@ class Controller
 
   def handle_notification
     @view.update_console
+    @game.flush_status
   end
 
 end
